@@ -1,11 +1,7 @@
 
-  # Interactive Scenario Training Page
+# AI 교육 지원 사이트
+- AI 교육의 기본인 파이썬과, 자바스크립트 기초 교육 목적
+- 초4학년이상의 학생들을 대상으로 교육을 하기 위한 사이트를 개발하기 위한 초기 디자인
 
-  This is a code bundle for Interactive Scenario Training Page. The original project is available at https://www.figma.com/design/NTOUjBokEVXu6rIp5dzIhd/Interactive-Scenario-Training-Page.
-
-  ## Running the code
-
-  Run `npm i` to install the dependencies.
-
-  Run `npm run dev` to start the development server.
-  
+- 작성자 : 박종욱
+- 기술 : React
