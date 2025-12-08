@@ -4,7 +4,7 @@ import { LearningStep } from './LearningStep';
 import { QuizStep } from './QuizStep';
 import { CodingStep } from './CodingStep';
 import { motion, AnimatePresence } from 'motion/react';
-import { CourseType } from '../types';
+import { CourseType, LearningType, LEARNING_STEPS } from '../types';
 
 interface LearningPageProps {
   stageName: string;
@@ -14,22 +14,9 @@ interface LearningPageProps {
   courseType: CourseType;
 }
 
-export interface Step {
-  id: string;
-  type: 'learn' | 'quiz' | 'coding';
-  title: string;
-  completed: boolean;
-}
-
-const steps: Step[] = [
-  { id: '1', type: 'learn', title: '개념 이해하기', completed: false },
-  { id: '2', type: 'quiz', title: '퀴즈 풀기', completed: false },
-  { id: '3', type: 'coding', title: '코드 작성하기', completed: false },
-];
-
 export function LearningPage({ stageName, stageColor, onClose, onComplete, courseType }: LearningPageProps) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
-  const [stepsState, setStepsState] = useState(steps);
+  const [stepsState, setStepsState] = useState(LEARNING_STEPS);
   const [totalStars, setTotalStars] = useState(0);
   const [showCongrats, setShowCongrats] = useState(false);
 

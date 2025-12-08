@@ -2,6 +2,8 @@ import { X, CheckCircle2, PlayCircle, BookOpen, Award } from 'lucide-react';
 import { useState } from 'react';
 import { LearningPage } from './LearningPage';
 import { Stage, CourseType } from '../types';
+import StageStats from './StageStats';
+import StageGoal from './StageGoal';
 
 interface StageModalProps {
   stage: Stage;
@@ -70,59 +72,12 @@ export function StageModal({ stage, scenarioColor, onClose, courseType }: StageM
 
         {/* Content */}
         <div className="p-8">
-          {/* Description */}
-          <div className="mb-8">
-            <div className="flex items-center gap-2 mb-3">
-              <BookOpen className="w-5 h-5 text-slate-600" />
-              <h3 className="text-slate-900">학습 내용</h3>
-            </div>
-            <p className="text-slate-600 leading-relaxed">{stage.description}</p>
-          </div>
-
-          {/* Learning objectives */}
-          <div className="mb-8">
-            <div className="flex items-center gap-2 mb-3">
-              <Award className="w-5 h-5 text-slate-600" />
-              <h3 className="text-slate-900">학습 목표</h3>
-            </div>
-            <ul className="space-y-2">
-              <li className="flex items-start gap-2 text-slate-600">
-                <span className="text-green-500 mt-1">✓</span>
-                <span>핵심 개념을 이해하고 설명할 수 있습니다</span>
-              </li>
-              <li className="flex items-start gap-2 text-slate-600">
-                <span className="text-green-500 mt-1">✓</span>
-                <span>실습 예제를 통해 직접 코드를 작성할 수 있습니다</span>
-              </li>
-              <li className="flex items-start gap-2 text-slate-600">
-                <span className="text-green-500 mt-1">✓</span>
-                <span>퀴즈를 통해 학습 내용을 점검할 수 있습니다</span>
-              </li>
-            </ul>
-          </div>
+          {/* Description & Learning objectives */}
+          <StageGoal description={stage.description} goals={stage.goals} />
 
           {/* Stats */}
           {stage.status === 'completed' && (
-            <div className="bg-green-50 rounded-xl p-6 mb-8">
-              <div className="flex items-center gap-2 mb-4">
-                <CheckCircle2 className="w-6 h-6 text-green-600" />
-                <h3 className="text-green-900">학습 완료</h3>
-              </div>
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div>
-                  <p className="text-green-600">학습 시간</p>
-                  <p className="text-green-900">45분</p>
-                </div>
-                <div>
-                  <p className="text-green-600">정답률</p>
-                  <p className="text-green-900">90%</p>
-                </div>
-                <div>
-                  <p className="text-green-600">획득 포인트</p>
-                  <p className="text-green-900">100P</p>
-                </div>
-              </div>
-            </div>
+            <StageStats study_time={2700} correct_rate={0.86} earned_point={80}/>
           )}
 
           {/* Actions */}
