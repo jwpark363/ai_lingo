@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { ArrowRight, ArrowLeft, Play, RotateCcw, Lightbulb, GripVertical } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CourseType } from '../types';
-import { pythonCodingChallenges } from './content/pythonContent';
-import { javascriptCodingChallenges } from './content/javascriptContent';
+import { PythonCodingChallenges } from './content/pythonContent';
+import { JavascriptCodingChallenges } from './content/javascriptContent';
 
 interface CodingStepProps {
   stageColor: string;
@@ -30,7 +30,7 @@ interface Challenge {
 }
 
 export function CodingStep({ stageColor, onComplete, onPrevious, courseType }: CodingStepProps) {
-  const allChallenges = courseType === 'python' ? pythonCodingChallenges : javascriptCodingChallenges;
+  const allChallenges = courseType === 'python' ? PythonCodingChallenges : JavascriptCodingChallenges;
   const challenges = allChallenges as Challenge[];
   
   const [currentChallengeIndex, setCurrentChallengeIndex] = useState(0);

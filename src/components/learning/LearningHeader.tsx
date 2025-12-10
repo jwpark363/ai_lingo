@@ -1,6 +1,6 @@
 import { X, Star, Zap, CheckCircle } from 'lucide-react';
 import { motion } from 'motion/react';
-import { LearningStep } from '../types';
+import { LearningStep } from '../../types';
 
 interface LearningHeaderProps {
   stage_name: string;
@@ -9,10 +9,10 @@ interface LearningHeaderProps {
   current_step_index: number;
   steps_state: LearningStep[];
   progress: number;
-  on_close: () => void;
+  onClose: () => void;
 }
 export default function LearningHeader({
-    stage_name,stage_color,total_stars,current_step_index,steps_state,progress,on_close
+    stage_name,stage_color,total_stars,current_step_index,steps_state,progress,onClose
 }: LearningHeaderProps) {
     return (
       <div className="sticky top-0 bg-white/90 backdrop-blur-sm shadow-sm z-10">
@@ -20,7 +20,7 @@ export default function LearningHeader({
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-3">
               <button
-                onClick={on_close}
+                onClick={onClose}
                 className="text-slate-400 hover:text-slate-600 transition-colors"
               >
                 <X className="w-6 h-6" />

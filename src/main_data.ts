@@ -1,4 +1,31 @@
-import { Scenario } from "./types";
+import { CourseId, Course, Scenario } from "./types";
+
+const LearningCourses: Course[] = [
+  {
+    id: 'javascript',
+    name: 'JavaScript',
+    icon: '💻',
+    description: '웹 개발의 핵심 언어인 JavaScript를 배우고, 동적인 웹 페이지를 만들어보세요.',
+    goals: [
+      'JavaScript 기초부터 React까지 학습합니다.',
+      'DOM 조작과 이벤트 처리 방법을 학습합니다.',
+      '웹 API 개발 실습을 통해 실무 능력을 키웁니다.',
+      '4개 노선 24개 스테이지로 구성되어 있습니다.',
+    ]
+  },
+  {
+    id: 'python',
+    name: 'Python',
+    icon: '🐍',
+    description: '쉽고 강력한 프로그래밍 언어인 Python을 배우고, AI, 데이터 분석의 기초를 다져보세요.',
+    goals: [
+      'Python 기초부터 자료구조까지 학습합니다.',
+      '파일 입출력과 객체지향 프로그래밍을 익힙니다.',
+      '데이터 분석과 웹 개발에 필요한 기초를 다집니다.',
+      '4개 노선 23개 스테이지로 구성되어 있습니다.',
+    ]
+  },
+]
 
 const JavascriptScenarios: Scenario[] = [
   {
@@ -342,4 +369,4 @@ const PythonScenarios: Scenario[] = [
   },
 ];
 
-export { JavascriptScenarios, PythonScenarios }
+export { LearningCourses, JavascriptScenarios, PythonScenarios }

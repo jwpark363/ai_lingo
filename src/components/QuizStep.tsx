@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { ArrowRight, ArrowLeft, Star, X, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CourseType } from '../types';
-import { pythonQuizQuestions } from './content/pythonContent';
-import { javascriptQuizQuestions } from './content/javascriptContent';
+import { PythonQuizQuestions } from './content/pythonContent';
+import { JavascriptQuizQuestions } from './content/javascriptContent';
 
 interface QuizStepProps {
   stageColor: string;
@@ -24,7 +24,7 @@ interface Question {
 }
 
 export function QuizStep({ stageColor, onComplete, onPrevious, courseType }: QuizStepProps) {
-  const questions = courseType === 'python' ? pythonQuizQuestions : javascriptQuizQuestions;
+  const questions = courseType === 'python' ? PythonQuizQuestions : JavascriptQuizQuestions;
   
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);

@@ -1,46 +1,46 @@
 import { useState } from 'react';
 import { ArrowRight, Lightbulb, BookOpen, ArrowLeft } from 'lucide-react';
 import { motion } from 'motion/react';
-import { CourseType } from '../types';
-import { pythonLearningContent } from './content/pythonContent';
-import { javascriptLearningContent } from './content/javascriptContent';
+import { CourseId } from '../../types';
+import { PythonLearningContent } from '../content/pythonContent';
+import { JavascriptLearningContent } from '../content/javascriptContent';
 
 interface LearningStepProps {
-  stageColor: string;
+  stage_color: string;
   onComplete: (stars: number) => void;
   onPrevious?: () => void;
-  courseType: CourseType;
+  course_type: CourseId;
 }
 
-export function LearningStep({ stageColor, onComplete, onPrevious, courseType }: LearningStepProps) {
-  const [currentPage, setCurrentPage] = useState(0);
+export function LearningStep({ stage_color, onComplete, onPrevious, course_type }: LearningStepProps) {
+  const [current_page, setCurrentPage] = useState(0);
 
-  const content = courseType === 'python' ? pythonLearningContent : javascriptLearningContent;
+  const content = course_type === 'python' ? PythonLearningContent : JavascriptLearningContent;
   const pages = content.pages;
   
-  const characterEmoji = courseType === 'python' ? '🐍' : '🤖';
-  const characterColor = courseType === 'python' 
+  const characterEmoji = course_type === 'python' ? '🐍' : '🤖';
+  const characterColor = course_type === 'python' 
     ? 'from-blue-400 to-yellow-400' 
     : 'from-blue-400 to-purple-500';
 
   const handleNext = () => {
-    if (currentPage < pages.length - 1) {
-      setCurrentPage(currentPage + 1);
+    if (current_page < pages.length - 1) {
+      setCurrentPage(current_page + 1);
     } else {
       onComplete(10);
     }
   };
 
   const handlePrev = () => {
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
+    if (current_page > 0) {
+      setCurrentPage(current_page - 1);
     } else if (onPrevious) {
       onPrevious();
     }
   };
 
-  const page = pages[currentPage];
-
+  const page = pages[current_page];
+  console.log(stage_color);
   return (
     <div className="space-y-6">
       {/* Character guide */}
@@ -61,7 +61,7 @@ export function LearningStep({ stageColor, onComplete, onPrevious, courseType }:
       {/* Content card */}
       <div className="bg-white rounded-2xl p-8 shadow-lg">
         <div className="flex items-center gap-2 mb-4">
-          <BookOpen className="w-6 h-6" style={{ color: stageColor }} />
+          <BookOpen className="w-6 h-6" style={{ color: stage_color }} />
           <h3 className="text-slate-900">예제 코드</h3>
         </div>
 
@@ -87,7 +87,7 @@ export function LearningStep({ stageColor, onComplete, onPrevious, courseType }:
           <div
             key={index}
             className={`h-2 rounded-full transition-all ${
-              index === currentPage ? 'w-8 bg-blue-500' : 'w-2 bg-slate-300'
+              index === current_page ? 'w-8 bg-blue-500' : 'w-2 bg-slate-300'
             }`}
           />
         ))}
@@ -105,9 +105,9 @@ export function LearningStep({ stageColor, onComplete, onPrevious, courseType }:
         <button
           onClick={handleNext}
           className="flex-1 flex items-center justify-center gap-2 px-6 py-4 text-white rounded-xl hover:opacity-90 transition-opacity text-lg"
-          style={{ backgroundColor: stageColor }}
+          style={{ backgroundColor: stage_color }}
         >
-          <span>{currentPage < pages.length - 1 ? '다음으로' : '완료하기'}</span>
+          <span>{current_page < pages.length - 1 ? '다음으로' : '완료하기'}</span>
           <ArrowRight className="w-5 h-5" />
         </button>
       </div>

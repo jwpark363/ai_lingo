@@ -1,4 +1,4 @@
-export const javascriptLearningContent = {
+export const JavascriptLearningContent = {
   pages: [
     {
       title: '안녕! 나는 코디야 🤖',
@@ -23,7 +23,7 @@ export const javascriptLearningContent = {
   ],
 };
 
-export const javascriptQuizQuestions = [
+export const JavascriptQuizQuestions = [
   {
     id: '1',
     type: 'multiple-choice' as const,
@@ -59,7 +59,7 @@ export const javascriptQuizQuestions = [
   },
 ];
 
-export const javascriptCodingChallenges = [
+export const JavascriptCodingChallenges = [
   {
     id: '1',
     type: 'arrange-blocks' as const,

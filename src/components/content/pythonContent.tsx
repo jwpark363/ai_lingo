@@ -1,4 +1,4 @@
-export const pythonLearningContent = {
+export const PythonLearningContent = {
   pages: [
     {
       title: '안녕! 나는 파이라고 해 🐍',
@@ -23,7 +23,7 @@ export const pythonLearningContent = {
   ],
 };
 
-export const pythonQuizQuestions = [
+export const PythonQuizQuestions = [
   {
     id: '1',
     type: 'multiple-choice' as const,
@@ -59,7 +59,7 @@ export const pythonQuizQuestions = [
   },
 ];
 
-export const pythonCodingChallenges = [
+export const PythonCodingChallenges = [
   {
     id: '1',
     type: 'arrange-blocks' as const,

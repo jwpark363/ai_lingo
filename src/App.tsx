@@ -1,29 +1,26 @@
 import { useState } from 'react';
-import { SubwayMap } from './components/SubwayMap';
-import { ScenarioDetail } from './components/ScenarioDetail';
-import { CourseSelection } from './components/CourseSelection';
-import { CourseType, Scenario } from './types';
+import { SubwayMap } from './components/subway/SubwayMap';
+import { ScenarioDetail } from './components/scenario/ScenarioDetail';
+import { CourseSelection } from './components/course/CourseSelection';
+import { CourseId, Scenario } from './types';
 import { JavascriptScenarios, PythonScenarios } from './main_data';
 
-
-
 export default function App() {
-  const [selectedCourse, setSelectedCourse] = useState<CourseType | null>(null);
-  const [selectedScenario, setSelectedScenario] = useState<Scenario | null>(null);
+  const [selected_course, setSelectedCourse] = useState<CourseId | null>(null);
+  const [selected_scenario, setSelectedScenario] = useState<Scenario | null>(null);
+  const current_scenarios = selected_course === 'javascript' ? JavascriptScenarios : PythonScenarios;
 
-  const currentScenarios = selectedCourse === 'javascript' ? JavascriptScenarios : PythonScenarios;
-
-  if (!selectedCourse) {
+  if (!selected_course) {
     return <CourseSelection onSelectCourse={setSelectedCourse} />;
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      {!selectedScenario ? (
+      {!selected_scenario ? (
         <SubwayMap 
-          scenarios={currentScenarios} 
+          scenarios={current_scenarios} 
           onSelectScenario={setSelectedScenario}
-          courseType={selectedCourse}
+          course_type={selected_course}
           onBackToCourseSelection={() => {
             setSelectedCourse(null);
             setSelectedScenario(null);
@@ -31,9 +28,9 @@ export default function App() {
         />
       ) : (
         <ScenarioDetail 
-          scenario={selectedScenario} 
+          scenario={selected_scenario} 
           onBack={() => setSelectedScenario(null)}
-          courseType={selectedCourse}
+          course_type={selected_course}
         />
       )}
     </div>
