@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Scenario, Stage, CourseId, StageStatus } from '../../types';
-import { ArrowLeft, CheckCircle2, Circle, Lock, MapPin } from 'lucide-react';
+// import { ArrowLeft, CheckCircle2, Circle, Lock, MapPin } from 'lucide-react';
 import { StageModal } from '../stage/StageModal';
 import ScenarioHead from './ScenarioHead';
 import ScenarioStation from './ScenarioStation';

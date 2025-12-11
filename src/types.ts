@@ -4,18 +4,6 @@ export type CourseId = 'javascript' | 'python';
 
 export type LearningType = 'learn' | 'quiz' | 'coding';
 
-export interface User{
-  id: number;
-  username: string;
-}
-
-export interface UserScenarios{
-  user_id: number;
-  scenario_id: string;
-  stage_id: string;
-  is_completed: boolean;
-}
-
 export interface Stage {
   id: string;
   name: string;
