@@ -6,6 +6,7 @@ import StageStats from './StageStats';
 import StageGoal from './StageGoal';
 import StageHeader from './StageHeader';
 import StageAction from './StageAction';
+import { useUserProgressStore } from '../../zustand';
 
 interface StageModalProps {
   stage: Stage;
@@ -15,15 +16,20 @@ interface StageModalProps {
 }
 
 export function StageModal({ stage, scenario_color, onClose, course_type }: StageModalProps) {
+  const {completedProgress, addProgress, updateProgress, deleteProgress} = useUserProgressStore();
   const [showLearning, setShowLearning] = useState(false);
 
   const handleStartLearning = () => {
     setShowLearning(true);
+    console.log(`Starting learning for stage`);
+    console.log(stage)
   };
 
   const handleCompleteLearning = () => {
     setShowLearning(false);
     onClose();
+    console.log(`Complete learning for stage`);
+    console.log(stage)
   };
 
   if (showLearning) {

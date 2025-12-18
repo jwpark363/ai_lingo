@@ -28,7 +28,7 @@ export default function CourseCard({course, text_color, onSelectCourse}: CourseC
             <div className="text-6xl">{course.icon}</div>
         </div>
         
-        <h2 className="text-slate-900 mb-3">JavaScript</h2>
+        <h2 className="text-slate-900 mb-3">{course.name}</h2>
         <p className="text-slate-600 text-lg mb-6">
             {course.description}
         </p>

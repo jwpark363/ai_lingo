@@ -2,9 +2,9 @@ import { create } from 'zustand';
 import { StageStatus } from './types';
 
 export interface Progress{
+    course_id: string;
     scenario_id: string;
     stage_id: string;
-    course_id: string;
     status: StageStatus;
 }
 
